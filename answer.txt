@@ -49,3 +49,102 @@ ELF Header:
   Number of section headers:         31
   Section header string table index: 28
 
+How does the operating system know that this file can be loaded into memory and run?
+What does the output tell you about the architecture of the machine this program is intended for?
+
+1.4.
+elee353@en-368402:~/Desktop/370_A3$ nm hello
+000000000060106f B __bss_start
+0000000000601060 D bye
+0000000000601070 b completed.7585
+0000000000601050 D __data_start
+0000000000601050 W data_start
+00000000004005e0 t deregister_tm_clones
+0000000000400660 t __do_global_dtors_aux
+0000000000600e18 t __do_global_dtors_aux_fini_array_entry
+0000000000601058 D __dso_handle
+0000000000600e28 d _DYNAMIC
+000000000060106f D _edata
+0000000000601078 B _end
+00000000004007d4 T _fini
+0000000000400680 t frame_dummy
+0000000000600e10 t __frame_dummy_init_array_entry
+0000000000400958 r __FRAME_END__
+                 U getpid@@GLIBC_2.2.5
+0000000000601000 d _GLOBAL_OFFSET_TABLE_
+                 w __gmon_start__
+000000000040080c r __GNU_EH_FRAME_HDR
+0000000000400500 T _init
+0000000000600e18 t __init_array_end
+0000000000600e10 t __init_array_start
+00000000004007e0 R _IO_stdin_used
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+0000000000600e20 d __JCR_END__
+0000000000600e20 d __JCR_LIST__
+                 w _Jv_RegisterClasses
+00000000004007d0 T __libc_csu_fini
+0000000000400760 T __libc_csu_init
+                 U __libc_start_main@@GLIBC_2.2.5
+00000000004006d8 T main
+00000000004006a6 T numbers
+                 U printf@@GLIBC_2.2.5
+                 U puts@@GLIBC_2.2.5
+0000000000400620 t register_tm_clones
+                 U sprintf@@GLIBC_2.2.5
+                 U __stack_chk_fail@@GLIBC_2.4
+00000000004005b0 T _start
+                 U system@@GLIBC_2.2.5
+0000000000601070 D __TMC_END__
+0000000000601074 B unused
+
+For each symbol in the output which also appears in the source code of hello.c , explain what
+type of symbol it is and give its value/address. This includes all symbols which are defined in the source code and those it references in other libraries.
+What library or libraries are the undefined symbols in?
+Why are there no symbols for any of the local variables?
+
+1.5.
+There are 4 special sections of memory associated with C programs: .text, .rodata, .data, .bss.
+Clearly describe each one.
+
+
+1.6.
+elee353@en-368402:~/Desktop/370_A3$ readelf -lW hello
+
+Elf file type is EXEC (Executable file)
+Entry point 0x4005b0
+There are 9 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000400040 0x0000000000400040 0x0001f8 0x0001f8 R E 0x8
+  INTERP         0x000238 0x0000000000400238 0x0000000000400238 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000400000 0x0000000000400000 0x00095c 0x00095c R E 0x200000
+  LOAD           0x000e10 0x0000000000600e10 0x0000000000600e10 0x00025f 0x000268 RW  0x200000
+  DYNAMIC        0x000e28 0x0000000000600e28 0x0000000000600e28 0x0001d0 0x0001d0 RW  0x8
+  NOTE           0x000254 0x0000000000400254 0x0000000000400254 0x000044 0x000044 R   0x4
+  GNU_EH_FRAME   0x00080c 0x000000000040080c 0x000000000040080c 0x00003c 0x00003c R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  GNU_RELRO      0x000e10 0x0000000000600e10 0x0000000000600e10 0x0001f0 0x0001f0 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+What is always true with regards to the virtual addresses of the segments and the offsets in the file?
+
+1.7.
+
+rest...
+https://docs.google.com/document/d/1ENdph6BUHtEd5JNLT1TzJ476HdSG7Wbb2gbRe6BMxu0/edit
+
+https://docs.google.com/document/d/1yLRd0GnAuRpATC5OzVmiXEqH1pFKyOF8wQHin3XeAtQ/edit#
