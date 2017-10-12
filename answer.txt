@@ -3,3 +3,27 @@ Describe the main differences between how program headers and section headers in
 used.
 
 1.2.
+elee353@en-368402:~/Desktop/370_A3$ ./hello
+Hello elee353!
+00400000-00401000 r-xp 00000000 00:2c 1047432194                         /afs/ec.auckland.ac.nz/users/e/l/elee353/unixhome/Desktop/370_A3/hello
+00600000-00601000 r--p 00000000 00:2c 1047432194                         /afs/ec.auckland.ac.nz/users/e/l/elee353/unixhome/Desktop/370_A3/hello
+00601000-00602000 rw-p 00001000 00:2c 1047432194                         /afs/ec.auckland.ac.nz/users/e/l/elee353/unixhome/Desktop/370_A3/hello
+014bc000-014dd000 rw-p 00000000 00:00 0                                  [heap]
+7f8bd3d66000-7f8bd3f26000 r-xp 00000000 103:05 918115                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f8bd3f26000-7f8bd4126000 ---p 001c0000 103:05 918115                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f8bd4126000-7f8bd412a000 r--p 001c0000 103:05 918115                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f8bd412a000-7f8bd412c000 rw-p 001c4000 103:05 918115                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f8bd412c000-7f8bd4130000 rw-p 00000000 00:00 0 
+7f8bd4130000-7f8bd4156000 r-xp 00000000 103:05 918020                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f8bd4300000-7f8bd4303000 rw-p 00000000 00:00 0 
+7f8bd4353000-7f8bd4355000 rw-p 00000000 00:00 0 
+7f8bd4355000-7f8bd4356000 r--p 00025000 103:05 918020                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f8bd4356000-7f8bd4357000 rw-p 00026000 103:05 918020                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f8bd4357000-7f8bd4358000 rw-p 00000000 00:00 0 
+7ffd0649a000-7ffd064bb000 rw-p 00000000 00:00 0                          [stack]
+7ffd064e7000-7ffd064e9000 r--p 00000000 00:00 0                          [vvar]
+7ffd064e9000-7ffd064eb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+0 1 2 3 4 5 6 7 8 9 Goodbye world.
+
+1.3.
