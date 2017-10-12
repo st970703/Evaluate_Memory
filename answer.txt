@@ -1,0 +1,5 @@
+1.1.
+Describe the main differences between how program headers and section headers in elf files are
+used.
+
+1.2.
